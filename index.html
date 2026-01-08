@@ -41,11 +41,22 @@
   <section>
     <div class="row-title">Featured Projects</div>
     <div class="row">
-      <div class="card"><img src="featured1.jpg" target="_blank"></a></div>
-      <div class="card"><img src="featured2.jpg" target="_blank"></a></div>
-      <div class="card"><img src="featured2.jpg" target="_blank"></a></div>
+      <div class="card">
+        <img src="featured1.jpg" data-full="featured1.jpg" alt="Project ARTDUKE">
+      </div>
+      <div class="card">
+        <img src="featured2.jpg" data-full="featured2.jpg" alt="Project ARTDUKE">
+      </div>
+      <!-- ulangi sesuai kebutuhan -->
     </div>
   </section>
+
+  <!-- FULLSCREEN VIEWER -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightboxImg">
+  </div>
+
 
   <section class="contact">
     <h2>Contact ARTDUKE</h2>
@@ -120,6 +131,31 @@
       playBtn.style.display = 'none'; // hilangkan tombol (Netflix style)
     });
   </script>
+
+  <script>
+    const images = document.querySelectorAll('.card img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.querySelector('.lightbox .close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.dataset.full || img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+      }
+    });
+  </script>
+
 
 </body>
 

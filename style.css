@@ -73,3 +73,59 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.08);padding:50px 6
   font-size:1.1rem;
   box-shadow:0 10px 30px rgba(0,0,0,.6);
 }
+
+/* ===== IMAGE LIGHTBOX ===== */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.5s ease;
+  z-index:99999;
+}
+
+.lightbox.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px;
+  transform:scale(.7);
+  transition:.5s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 30px 80px rgba(0,0,0,.9);
+}
+
+.lightbox.active img{
+  transform:scale(1);
+}
+
+.lightbox .close{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:3rem;
+  color:#fff;
+  cursor:pointer;
+  font-weight:300;
+  transition:.3s;
+}
+
+.lightbox .close:hover{
+  color:#e50914;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.8));
+  pointer-events:none; /* <-- PENTING */
+}
+
