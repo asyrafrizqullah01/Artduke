@@ -33,7 +33,7 @@
       </p>
       <div class="hero-buttons">
         <button id="playBtn" class="btn btn-play">▶ PLAY</button>
-        <button class="btn btn-info">ⓘ INFO</button>
+        <button id="infoBtn" class="btn btn-info">ⓘ INFO</button>
       </div>
     </div>
   </header>
@@ -65,6 +65,41 @@
     <span class="close">&times;</span>
     <img id="lightboxImg">
   </div>
+  <!-- INFO MODAL -->
+  <div class="info-modal" id="infoModal">
+    <div class="info-content">
+      <span class="info-close">&times;</span>
+
+      <h2>ARTDUKE</h2>
+      <p class="tagline">Architecture</p>
+
+      <p>
+        ARTDUKE adalah studio arsitektur independen yang bergerak di bidang
+        desain arsitektur, visualisasi, dan konsep ruang dengan karakter
+        modern, street, dan cinematic.
+      </p>
+
+      <div class="info-grid">
+        <div>
+          <h4>Fokus Layanan</h4>
+          <p>Arsitektur, Konseptual Design, Visual 3D</p>
+        </div>
+        <div>
+          <h4>Domisili</h4>
+          <p>Indonesia</p>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <p>Instagram: @artduke_official</p>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <p>Studio Arsitektur Independen</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <section class="contact">
@@ -166,6 +201,32 @@
         lightbox.addEventListener('click', e => {
           if (e.target === lightbox) {
             lightbox.classList.remove('active');
+          }
+        });
+      }
+
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* ===== INFO MODAL ===== */
+      const infoBtn = document.getElementById('infoBtn');
+      const infoModal = document.getElementById('infoModal');
+      const infoClose = document.querySelector('.info-close');
+
+      if (infoBtn && infoModal && infoClose) {
+        infoBtn.addEventListener('click', () => {
+          infoModal.classList.add('active');
+        });
+
+        infoClose.addEventListener('click', () => {
+          infoModal.classList.remove('active');
+        });
+
+        infoModal.addEventListener('click', e => {
+          if (e.target === infoModal) {
+            infoModal.classList.remove('active');
           }
         });
       }
