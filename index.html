@@ -19,9 +19,10 @@
   </audio>
 
   <header>
-    <video autoplay muted loop playsinline preload="auto">
-      <source src="video.mp4" type="video/mp4">
+    <video id="heroVideo" muted loop playsinline preload="auto">
+      <source src="video-hero.mp4" type="video/mp4">
     </video>
+
 
     <div class="graffiti">ARTDUKE</div>
     <div class="hero-content">
@@ -31,7 +32,7 @@
         Setiap proyek adalah episode visual yang sinematik dan berkarakter.
       </p>
       <div class="hero-buttons">
-        <button class="btn btn-play">▶ PLAY</button>
+        <button id="playBtn" class="btn btn-play">▶ PLAY</button>
         <button class="btn btn-info">ⓘ INFO</button>
       </div>
     </div>
@@ -109,6 +110,16 @@
     </div>
     <div class="copyright">© 2026 ARTDUKE • All Rights Reserved</div>
   </footer>
+  <script>
+    const video = document.getElementById('heroVideo');
+    const playBtn = document.getElementById('playBtn');
+
+    playBtn.addEventListener('click', () => {
+      video.muted = false; // buka suara
+      video.play(); // putar video
+      playBtn.style.display = 'none'; // hilangkan tombol (Netflix style)
+    });
+  </script>
 
 </body>
 
